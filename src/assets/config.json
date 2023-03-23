@@ -1,0 +1,44 @@
+{
+  "header": {
+    "links": [
+      {
+        "name": "Github",
+        "link": "https://github.com/SamuNatsu/Kagero"
+      },
+      {
+        "name": "Blog",
+        "link": "https://rainiar.top"
+      }
+    ],
+    "navigations": [
+      {
+        "name": "Introduction",
+        "anchor": "introduction"
+      },
+      {
+        "name": "Features",
+        "anchor": "features"
+      }
+    ],
+    "title": "Kagero"
+  },
+  "galleries": {
+    "example": [
+      {
+        "name": "秋葉原 | Akihabara",
+        "link": "/galleries/example/akihabara.jpg",
+        "description": "Origin: https://unsplash.com/photos/Of2rc0KOfVU<br/>Author: Pat Krupa<br/>Position: Akihabara, Taito City, Tokyo, Japan<br/>Date: 2021/2/16<br/>Camera: SONY, ILCE-7RM3"
+      },
+      {
+        "name": "Stars",
+        "link": "/galleries/example/stars.jpg",
+        "description": "Origin: https://unsplash.com/photos/RmoWqDCqN2E<br/>Author: Casey Horner<br/>Position: Yosemite Valley, United States<br/>Date: 2018/9/20<br/>Camera: NIKON CORPORATION, NIKON D750"
+      },
+      {
+        "name": "ガンダム | Gundam",
+        "link": "/galleries/example/gundam.jpg",
+        "description": "Origin: https://unsplash.com/photos/nKO_1QyFh9o<br/>Author: Bruce Tang<br/>Position: Tokyo, 日本<br/>Date: 2019/10/22<br/>Camera: Canon, EOS 5D Mark III"
+      }
+    ]
+  }
+}
