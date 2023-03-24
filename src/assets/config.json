@@ -16,11 +16,21 @@
         "anchor": "introduction"
       },
       {
-        "name": "Features",
-        "anchor": "features"
+        "name": "Gallery components",
+        "anchor": "gallery-components"
+      },
+      {
+        "name": "Footer",
+        "anchor": "footer"
       }
     ],
     "title": "Kagero"
+  },
+  "footer": {
+    "copyright": {
+      "name": "SamuNatsu Rainiar",
+      "link": "https://rainiar.top"
+    }
   },
   "galleries": {
     "example": [

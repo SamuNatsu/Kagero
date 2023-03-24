@@ -9,7 +9,11 @@ import LightboxVue from './Lightbox.vue'
 // Properties
 defineProps({
   name: String,
-  height: String
+  height: String,
+  noResponse: Boolean,
+  navigation: Boolean | Object,
+  pagination: Boolean | Object,
+  autoplay: Boolean | Object
 })
 
 // Register swiper
@@ -25,14 +29,12 @@ const lightbox = ref(false)
   <div>
     <!-- Swiper -->
     <swiper-container
-      :navigation="true" 
-      :pagination="{
-        clickable: true
-      }" 
-      :autoplay="{
+      :navigation="navigation === undefined ? true : navigation" 
+      :pagination="pagination === undefined ? { clickable: true } : pagination" 
+      :autoplay="autoplay === undefined ? {
         disableOnInteraction: false,
         pauseOnMouseEnter: true
-      }"
+      } : autoplay"
       class="relative"
     >
       <swiper-slide
@@ -45,7 +47,7 @@ const lightbox = ref(false)
           <!-- Name -->
           <transition>
             <div 
-              v-if="showName"
+              v-if="showName && noResponse === false"
               class="absolute backdrop-brightness-50 cursor-pointer flex inset-0 items-center justify-center select-none"
               @click="lightbox = { name: i.name, link: i.link, description: i.description }"
             >
@@ -54,14 +56,14 @@ const lightbox = ref(false)
           </transition>
 
           <!-- Picture -->
-          <img class="object-cover" :src="i.link" loading="lazy">
+          <img class="object-cover w-full" :style="{ height }" :src="i.link" loading="lazy">
         </div>
       </swiper-slide>
     </swiper-container>
 
     <!-- Lightbox -->
     <lightbox-vue
-      v-if="lightbox !== false"
+      v-if="lightbox !== false && noResponse === false"
       :name="lightbox.name"
       :link="lightbox.link"
       :description="lightbox.description"

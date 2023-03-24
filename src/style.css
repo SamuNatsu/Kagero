@@ -2,3 +2,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Global style */
+html {
+  scroll-padding-top: 3rem;
+}
