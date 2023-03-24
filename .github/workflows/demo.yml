@@ -11,26 +11,40 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - name: Checkout branch
       uses: actions/checkout@v3
-    
     - name: Setup pnpm 7.x
       uses: pnpm/action-setup@v2
       with:
         version: 7
-
     - name: Setup Node.js 18.x
       uses: actions/setup-node@v3
       with:
         node-version: 18.x
         cache: 'pnpm'
-
     - name: Install dependencies
       run: pnpm install
-
     - name: Build distribution
       run: pnpm run build
+    - name: Create artifact
+      run: tar -zcf dist.tar.gz dist/*
+    - name: Update artifact
+      uses: actions/upload-artifact@v1
+      with:
+        name: github-pages
+        path: dist.tar.gz
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+    - name: Deploy to Github Pages
+      id: deployment
+      uses: actions/deploy-pages@v1
