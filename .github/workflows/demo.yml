@@ -29,7 +29,7 @@ jobs:
     - name: Build distribution
       run: pnpm run build
     - name: Create artifact
-      run: tar -zcf dist.tar.gz dist/*
+      run: tar --dereference --hard-dereference --directory dist/ -cvf dist.tar.gz .
     - name: Update artifact
       uses: actions/upload-artifact@v1
       with:
